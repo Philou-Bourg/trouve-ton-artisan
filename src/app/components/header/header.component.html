@@ -1,0 +1,38 @@
+<!-- header.component.html -->
+
+<header class="header">
+  
+  <!-- Logo -->
+  <div class="logo-container">
+    <a href="/" class="logo">
+      <img src="assets/images/Logo.png" alt="Logo" width="331.61" height="117.84" />
+    </a>
+  </div>
+
+  <!-- Barre de recherche -->
+  <div class="search-container">
+    <div class="search-bar">
+      <input type="text" placeholder="Rechercher par nom, spécialité ou ville" class="search-input">
+      <button class="search-btn">
+        <img src="assets/images/loupe.png" alt="Rechercher">
+      </button>
+    </div>
+  </div>
+
+  <!-- Menu hamburger -->
+  <div class="hamburger" (click)="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav class="nav-bar" [ngClass]="{ 'active': isMenuOpen }">
+    <ul>
+      <li><a routerLink="/artisans" [queryParams]="{ category: 'Bâtiment' }" (click)="closeMenu()">Bâtiment</a></li>
+      <li><a routerLink="/artisans" [queryParams]="{ category: 'Services' }" (click)="closeMenu()">Services</a></li>
+      <li><a routerLink="/artisans" [queryParams]="{ category: 'Fabrication' }" (click)="closeMenu()">Fabrication</a></li>
+      <li><a routerLink="/artisans" [queryParams]="{ category: 'Alimentation' }" (click)="closeMenu()">Alimentation</a></li>
+    </ul>
+  </nav>
+</header>

@@ -1,1 +1,19 @@
-<p>artisan-liste works!</p>
+<div *ngIf="filteredArtisans.length > 0; else noResults">
+  <h2>Artisans - {{ category || 'Tous' }}</h2>
+  <div class="artisan-list">
+    <div *ngFor="let artisan of filteredArtisans" class="artisan-card">
+      <h3>{{ artisan.name }}</h3>
+      <p>Spécialité : {{ artisan.specialty }}</p>
+      <p>
+        Note :
+        <span *ngFor="let star of [].constructor(+artisan.note)">⭐</span>
+      </p>
+      <p>Localisation : {{ artisan.location }}</p>
+      <a [routerLink]="['/artisan', artisan.id]">Voir plus</a>
+    </div>
+  </div>
+</div>
+
+<ng-template #noResults>
+  <p>Aucun artisan trouvé pour cette catégorie.</p>
+</ng-template>

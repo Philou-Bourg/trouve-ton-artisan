@@ -1,0 +1,303 @@
+/* header.component.scss */
+
+/* Style global pour le header */
+.header {
+  display: grid;
+  grid-template-areas:
+    "logo search"
+    "menu menu";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  row-gap: 10px; /* Espacement vertical entre les lignes */
+}
+
+/* Logo */
+.logo-container {
+  grid-area: logo;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo img {
+  width: 331.61px;
+  height: 117.84px;
+}
+
+/* Barre de recherche */
+.search-container {
+  grid-area: search;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #31A4F8;
+  border-right: 2px solid #31A4F8;
+  padding: 2px 5px;
+}
+
+.search-input {
+  width: 400px; /* Taille ajustée */
+  height: 30px;
+  padding-left: 10px;
+  font-size: 16px;
+  color: #939393;
+  border: none;
+  outline: none;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  grid-area: menu;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-bar ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 0;
+  margin-top: -30px;
+}
+
+.nav-bar li {
+  margin-right: 20px; /* Espacement entre les éléments du menu */
+}
+
+.nav-bar a {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.nav-bar a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+
+/* Pour tablettes */
+@media (max-width: 768px) {
+  
+  .header {
+    grid-template-areas:
+      "logo search"
+      "logo menu"; /* Menu sous la recherche, aligné à droite */
+    grid-template-columns: auto 1fr; /* Deux colonnes : logo et contenu (recherche + menu) */
+    grid-template-rows: auto auto; /* Deux lignes : recherche puis menu et Hauteur automatique pour chaque lignes */
+    align-items: center; /* Aligne en vertical les éléments */
+    height: auto; /* Hauteur automatique pour gérer le contenu */
+    row-gap: 2px; /* Espacement vertical réduit entre les lignes */
+  }
+
+  .logo-container {
+    grid-area: logo; /* Positionnement pour le logo */
+    justify-content: flex-start;
+  }
+
+  /* Barre de recherche pour tablettes */
+.search-container {
+  grid-area: search;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: -5px; /* Réduit l'espace entre la recherche et la navigation */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  border-bottom: 2px solid #31A4F8;
+  border-right: 2px solid #31A4F8;
+  padding: 2px 5px;
+}
+
+.search-input {
+  width: 400px; /* Taille ajustée */
+  height: 30px;
+  padding-left: 10px;
+  font-size: 16px;
+  color: #939393;
+  border: none;
+  outline: none;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+}
+
+ /* Barre de navigation pour tablettes */
+  .nav-bar {
+    grid-area: menu; /* Positionnement sous la recherche */
+    justify-content: flex-end; /* Alignement à droite */
+    margin-top: -5px;
+    padding: 0;
+  }
+
+  .logo img {
+    width: 200px; /* Réduction de la taille du logo */
+    height: auto; /* Conserve les proportions */
+  }
+  
+}
+
+/* Pour mobiles */
+@media (max-width: 390px) {
+  .header {
+    display: grid;
+    grid-template-areas:
+      "logo"
+      "search"
+      "menu";
+    grid-template-rows: auto auto auto; /* Chaque élément sur une ligne */
+    row-gap: 5px; /* Réduit l'espace entre les lignes */
+    padding: 10px;
+  }
+
+  .logo-container {
+    grid-area: logo;
+    display: flex;
+    justify-content: flex-start; /* Aligne le logo à gauche */
+    margin-bottom: 0px; /* Supprime l'espace sous le logo */
+    padding-left: 10px; /* Ajoute un léger espacement à gauche */
+    height: 30px; /* Réduit la hauteur du conteneur */
+    align-items: center; /* Aligne le logo verticalement */
+  }
+
+  .logo img {
+    width: 140px; /* Réduction de la taille du logo */
+    height: auto; /* Conserve les proportions */
+  }
+
+   /* Barre de recherche */
+
+
+  .search-container {
+    grid-area: search;
+    display: flex;
+    height:20px;
+    width: 100w;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+    margin-bottom: 5px; /* J'ajoute un léger espace sous la barre de recherche */
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    width: 205px;
+    max-width: 100%;
+    height: 20px;
+    border-bottom: 2px solid #31A4F8;
+    border-right: 2px solid #31A4F8;
+    padding: 2px 5px;
+  }
+  
+  .search-input {
+    width: 100%;
+    height: 20px;
+    padding-left: 10px;
+    font-size: 10px;
+    color: #939393;
+    border: none;
+    outline: none;
+  }
+  
+  .search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 30px;
+  }
+
+  .search-btn img {
+    width: 10px; /* Réduit la taille de l'icône de la loupe */
+    height: auto; /* Conserve les proportions */
+  }
+
+/* Menu hamburger */
+
+  .hamburger {
+    grid-area: menu;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligne le menu hamburger à gauche */
+    cursor: pointer;
+    margin: 0; /* Supprime les marges supplémentaires */
+    padding-left: 10px; /* Ajoute un espacement à gauche */
+  }
+
+  .hamburger .bar {
+    width: 18px;
+    height: 3px;
+    background-color: #333;
+    margin: 2px 0;
+    border-radius: 2px;
+  }
+ 
+
+  .nav-bar {
+    display: none; /* Masque la navigation par défaut */
+    flex-direction: column;
+    align-items: flex-start; /* Aligne le menu déroulant à gauche */
+    background-color: #fff;
+    padding: 10px;
+    margin-top: 10px; /* Ajoute un espacement sous le menu hamburger */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-bar.active {
+    display: flex; /* Affiche le menu lorsque le hamburger est actif */
+  }
+
+  .nav-bar.active ul {
+    display: flex;
+    flex-direction: column; /* Affichage en colonne */
+    align-items: flex-start; /* Alignement des éléments à gauche */
+    padding: 0;
+    margin: 0;
+  }
+
+  
+  .nav-bar li {
+    margin: 10px 0; /* Espacement vertical entre les liens */
+  }
+
+  .nav-bar a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .nav-bar a:hover {
+    text-decoration: underline;
+  }
+  
+  
+}
+
