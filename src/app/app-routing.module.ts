@@ -4,21 +4,25 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import { ArtisanFicheComponent } from './components/artisan-fiche/artisan-fiche.component';
 import { ArtisanListeComponent } from './components/artisans-liste/artisan-liste.component';
 import { Page404Component } from './components/page-404/page-404.component';
+import { MentionsLegalesComponent } from './components/mentions-legales/mentions-legales.component';
+import { DonneesPersonnellesComponent } from './components/donnees-personnelles/donnees-personnelles.component';
+import { AccessibiliteComponent } from './components/accessibilite/accessibilite.component';
+import { GestionCookiesComponent } from './components/gestion-cookies/gestion-cookies.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
-
-  // Route pour afficher la liste des artisans filtrée par catégorie
   { path: 'artisans/:categorie', component: ArtisanListeComponent },
-
-  // Route pour afficher la fiche détaillée d'un artisan
   { path: 'artisan/:id', component: ArtisanFicheComponent },
-
-  // Route pour afficher la liste des artisans
   { path: 'artisans', component: ArtisanListeComponent },
-  
-  // Route 404
-  { path: '**', component: Page404Component }
+
+  // Routes du footer
+  { path: 'mentions-legales', component: MentionsLegalesComponent },
+  { path: 'donnees-personnelles', component: DonneesPersonnellesComponent },
+  { path: 'accessibilite', component: AccessibiliteComponent },
+  { path: 'gestion-cookies', component: GestionCookiesComponent },
+
+  // Route 404 - doit être en dernier
+  { path: '**', component: Page404Component },
 ];
 
 @NgModule({

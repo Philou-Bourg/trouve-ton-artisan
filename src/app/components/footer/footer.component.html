@@ -1,0 +1,88 @@
+<!-- footer.component.html -->
+
+<footer class="bg-[#0074C7] text-white">
+    <!-- Première partie du footer -->
+    <div class="container mx-auto py-6">
+        <div class="flex items-center">
+            <!-- Logo à gauche -->
+            <div class="flex-shrink-0">
+                <img 
+                    src="../../../assets/images/footer-logo.png" 
+                    alt="Logo" 
+                    class="w-[237px] h-[132px] normal:w-[180px] normal:h-[100px] sm:w-[237px] sm:h-[132px] h-auto"
+                >
+            </div>
+
+            <!-- Conteneur texte d'adresse -->
+            <div class="flex-1 sm:flex sm:justify-center ml-6">
+                <div class="text-left address-phone-container">
+                    <!-- Lyon (fixe à 16px, gras) -->
+                    <p class="text-xl font-bold">Lyon</p>
+
+                    <!-- Adresse (taille dynamique en fonction de l'écran) -->
+                    <p class="text-[9px] sm:text-[9px] md:text-[10px] lg:text-[12px]">101 cours Charlemagne CS 20033</p>
+                    <p class="text-[9px] sm:text-[9px] md:text-[10px] lg:text-[12px]">69269 LYON CEDEX 02</p>
+                    <p class="text-[9px] sm:text-[9px] md:text-[10px] lg:text-[12px]">France</p>
+
+                    <!-- Téléphone avec icône -->
+                    <div class="flex items-center mt-2">
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            class="text-white mr-2"
+                            fill="currentColor" 
+                            viewBox="0 0 24 24" 
+                            stroke="none"
+                            width="12" 
+                            height="12"
+                            class="w-[12px] sm:w-[12px] md:w-[14px] lg:w-[16px] h-[12px] sm:h-[12px] md:h-[14px] lg:h-[16px]"
+                        >
+                            <path d="M2.46 3.88c.28-.55.69-.99 1.2-1.3a2.74 2.74 0 011.71-.36c.76.11 1.39.42 2.03.96l1.33 1.24c.42.39.66.84.78 1.33.12.49.05.97-.21 1.42l-.92 1.5c-.23.4-.26.8-.08 1.21.23.53.58 1.01.94 1.48.56.72 1.17 1.38 1.79 2.03.3.34.66.63 1.08.84.4.2.81.19 1.2-.06.33-.21.62-.48.89-.77.41-.44.81-.88 1.22-1.32.32-.36.72-.54 1.2-.53.48 0 .92.16 1.32.47l1.44 1.1c.57.43 1.06.96 1.39 1.62.26.52.36 1.07.29 1.66a3.02 3.02 0 01-.91 1.8c-.56.58-1.24 1.02-2 1.31a4.47 4.47 0 01-3.01.18c-1.13-.37-2.16-.92-3.1-1.6a16.88 16.88 0 01-5.4-6.02 16.13 16.13 0 01-1.8-4.96 6.03 6.03 0 01-.01-2.29c.17-.82.5-1.56.97-2.23z"></path>
+                        </svg>
+                        <p class="text-[9px] sm:text-[9px] md:text-[10px] lg:text-[12px]">
+                            +33 (0)4 26 73 40 00
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ligne de séparation -->
+    <hr class="border-t-2 border-white mx-auto w-full my-6">
+
+    <!-- Deuxième partie du footer : Menu des pages légales -->
+    <div class="container mx-auto text-center py-6">
+        <div class="flex justify-center space-x-6">
+            <a routerLink="/mentions-legales" class="text-white text-sm hover:underline hover:text-black">Mentions légales</a>
+            <a routerLink="/donnees-personnelles" class="text-white text-sm hover:underline hover:text-black">Données personnelles</a>
+            <a routerLink="/accessibilite" class="text-white text-sm hover:underline hover:text-black">Accessibilité</a>
+            <a routerLink="/gestion-cookies" class="text-white text-sm hover:underline hover:text-black">Gestion des cookies</a>
+        </div>
+    </div>
+
+    <!-- Troisième partie du footer : Logos sociaux -->
+    <div class="bg-white py-6">
+        <div class="container mx-auto flex justify-center space-x-4">
+            <!-- Lien vers Facebook -->
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="transform transition-transform duration-300 hover:scale-110 hover:shadow-lg">
+                <img src="../../../assets/images/facebook.jpg" alt="Facebook" class="w-7 h-7 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:w-5 lg:h-5">
+            </a>
+            <!-- Lien vers Instagram -->
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="transform transition-transform duration-300 hover:scale-110 hover:shadow-lg">
+                <img src="../../../assets/images/instagram.jpg" alt="Instagram" class="w-7 h-7 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:w-5 lg:h-5">
+            </a>
+            <!-- Lien vers LinkedIn -->
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="transform transition-transform duration-300 hover:scale-110 hover:shadow-lg">
+                <img src="../../../assets/images/linkedIn.jpg" alt="LinkedIn" class="w-7 h-7 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:w-5 lg:h-5">
+            </a>
+            <!-- Lien vers X (anciennement Twitter) -->
+            <a href="https://X.com" target="_blank" rel="noopener noreferrer" class="transform transition-transform duration-300 hover:scale-110 hover:shadow-lg">
+                <img src="../../../assets/images/twitter.jpg" alt="Twitter" class="w-7 h-7 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:w-5 lg:h-5">
+            </a>
+            <!-- Lien vers YouTube -->
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="transform transition-transform duration-300 hover:scale-110 hover:shadow-lg">
+                <img src="../../../assets/images/youtube.jpg" alt="YouTube" class="w-7 h-7 sm:w-6 sm:h-6 md:w-5 md:h-5 lg:w-5 lg:h-5">
+            </a>
+        </div>
+    </div>
+</footer>

@@ -82,7 +82,7 @@
 }
 
 .nav-bar a {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Graphik', sans-serif;
   font-size: 20px;
   color: #000000;
   text-decoration: none;
@@ -119,23 +119,24 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: -5px; /* Réduit l'espace entre la recherche et la navigation */
+  
 }
 
 .search-bar {
   display: flex;
   align-items: center;
-  width: 400px;
+  height: 25px;
+  width: 230px;
   border-bottom: 2px solid #31A4F8;
   border-right: 2px solid #31A4F8;
   padding: 2px 5px;
 }
 
 .search-input {
-  width: 400px; /* Taille ajustée */
-  height: 30px;
+  width: 230px; /* Taille ajustée */
+  height: 25px;
   padding-left: 10px;
-  font-size: 16px;
+  font-size: 10px;
   color: #939393;
   border: none;
   outline: none;
@@ -152,8 +153,19 @@
   .nav-bar {
     grid-area: menu; /* Positionnement sous la recherche */
     justify-content: flex-end; /* Alignement à droite */
-    margin-top: -5px;
+    margin-top: 15px;
     padding: 0;
+  }
+
+  .nav-bar a {
+    font-family: 'Graphik', sans-serif;
+    font-size: 10px;
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .nav-bar li {
+    margin-right: 5px; /* Espacement entre les éléments du menu */
   }
 
   .logo img {
@@ -162,6 +174,7 @@
   }
   
 }
+
 
 /* Pour mobiles */
 @media (max-width: 390px) {
