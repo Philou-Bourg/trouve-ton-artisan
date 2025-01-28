@@ -1,0 +1,49 @@
+/* accueil.component.scss */
+
+
+/* Responsivité */
+
+/* Ajustements pour les tailles d'écran intermédiaires */
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .text-md {
+      font-size: 0.85rem; /* Réduction légère de la taille du texte */
+    }
+  
+    .text-sm {
+      font-size: 0.75rem; /* Réduction légère pour les petits textes */
+    }
+    .flex-wrap {
+      flex-wrap: wrap; /* Autoriser le retour à la ligne */
+    }
+  
+    .step {
+      width: 30%; /* Réserver environ 30% pour chaque étape (1ère ligne) */
+    }
+  
+    .step:last-child {
+      width: 30%; /* Faire passer la 4ème étape sur une nouvelle ligne */
+      justify-content: center; /* Centrer cette étape */
+    }
+  }
+  
+  /* Section 2 - Les trois artisans du mois */
+
+  /* Couleurs et typographies */
+.text-black {
+  color: #000;
+}
+.text-blue-500 {
+  color: #0074C7;
+}
+.bg-light {
+  background-color: #f9f9f9;
+}
+
+/* Style des cartes d'artisan */
+.artisan-card {
+  transition: transform 0.3s ease-in-out;
+}
+.artisan-card:hover {
+  transform: translateY(-5px);
+}
