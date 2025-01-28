@@ -12,9 +12,22 @@ export default {
         primary: '#1E40AF', // Couleur personnalisée
         secondary: '#6EE7B7',
         dark: '#0F172A',
+        textPrimary: '#00497C', // Couleur du texte
+        ellipseBlue: '#0074C7', // Couleur de l'ellipse
+        bgLight: '#F1F8FC', // Background des rectangles
       },
       fontFamily: {
         sans: ['Graphik', 'Inter', 'sans-serif'], // Famille de polices
+      },
+      fontSize: {
+        'step-lg': '24px',
+        'step-md': '16px',
+        'step-sm': '12px',
+        'step-normal': '11px', // Taille plus petite pour les très petits écrans (390px)
+      },
+      spacing: {
+        'step-ellipse': '50px',
+        'step-box': '337px',
       },
       screens: {
         sm: '640px',
