@@ -30,11 +30,12 @@ export default {
         'step-box': '337px',
       },
       screens: {
+        normal: '390px', // Breakpoint spécifique pour les mobiles normaux
         sm: '640px',
         md: '768px',
         lg: '1024px',
+        custom: '1127px', // Ajout d'un breakpoint personnalisé
         xl: '1280px',
-        normal: '390px', // Breakpoint spécifique pour les mobiles normaux
       },
     },
   },

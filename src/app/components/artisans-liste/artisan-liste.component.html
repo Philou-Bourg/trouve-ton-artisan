@@ -1,19 +1,35 @@
-<div *ngIf="filteredArtisans.length > 0; else noResults">
-  <h2>Artisans - {{ category || 'Tous' }}</h2>
-  <div class="artisan-list">
-    <div *ngFor="let artisan of filteredArtisans" class="artisan-card">
-      <h3>{{ artisan.name }}</h3>
-      <p>Spécialité : {{ artisan.specialty }}</p>
-      <p>
+<!-- artisan-liste.component.html -->
+
+<div *ngIf="filteredArtisans.length > 0">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-12">
+    <!-- Artisan -->
+    <div *ngFor="let artisan of filteredArtisans"
+      class="artisan-card bg-[#F1F8FC] shadow-lg hover:shadow-xl rounded-lg p-4 w-full flex flex-col items-start">
+      
+      <!-- Nom de l'artisan -->
+      <h3 class="text-graphik font-bold text-xl text-black mb-2 text-left ml-4">{{ artisan.name }}</h3>
+      
+      <!-- Note -->
+      <p class="text-black text-lg text-left flex items-center mt-2 ml-4">
         Note :
-        <span *ngFor="let star of [].constructor(+artisan.note)">⭐</span>
+        <span class="ml-2">{{ artisan.note }}</span>
+        <span class="ml-2">
+          <span *ngFor="let star of createStarArray(artisan.note)" class="text-[#0074C7]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+          </span>
+        </span>
       </p>
-      <p>Localisation : {{ artisan.location }}</p>
-      <a [routerLink]="['/artisan', artisan.id]">Voir plus</a>
+
+      <!-- Spécialité -->
+      <p class="text-black text-lg text-left mt-2 ml-4">Spécialité : {{ artisan.specialty }}</p>
+
+      <!-- Localisation -->
+      <p class="text-black text-lg text-left mt-2 ml-4">Localisation : {{ artisan.location }}</p>
+
+      <!-- Lien vers plus de détails -->
+      <a [routerLink]="['/artisan', artisan.id]" class="text-blue-500 hover:text-blue-700 mt-4 self-center">Voir plus</a>
     </div>
   </div>
 </div>
-
-<ng-template #noResults>
-  <p>Aucun artisan trouvé pour cette catégorie.</p>
-</ng-template>

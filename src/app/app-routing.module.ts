@@ -1,3 +1,5 @@
+// app-routing.module.ts
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './components/accueil/accueil.component';
@@ -11,9 +13,11 @@ import { GestionCookiesComponent } from './components/gestion-cookies/gestion-co
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
-  { path: 'artisans/:categorie', component: ArtisanListeComponent },
-  { path: 'artisan/:id', component: ArtisanFicheComponent },
-  { path: 'artisans', component: ArtisanListeComponent },
+
+  // Route pour afficher la liste des artisans par catégorie
+  { path: 'artisans/:categorie', component: ArtisanListeComponent }, // Affichage des artisans par catégorie
+  { path: 'artisan/:id', component: ArtisanFicheComponent }, // Route pour afficher la fiche d'un artisan en particulier
+  { path: 'artisans', component: ArtisanListeComponent }, // Affichage général des artisans
 
   // Routes du footer
   { path: 'mentions-legales', component: MentionsLegalesComponent },

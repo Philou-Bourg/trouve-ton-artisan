@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+// artisan-liste.components.ts
+
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArtisanService } from '../../services/artisan.service';
 
@@ -7,10 +9,13 @@ import { ArtisanService } from '../../services/artisan.service';
   templateUrl: './artisan-liste.component.html',
   styleUrls: ['./artisan-liste.component.scss']
 })
-export class ArtisanListeComponent implements OnInit {
+export class ArtisanListeComponent implements OnInit, OnChanges {
   artisans: any[] = [];
   filteredArtisans: any[] = [];
   category: string | null = null;
+  errorMessage: string | null = null;
+
+  @Input() selectedCategory: string | null = null;  // Recevoir la catégorie sélectionnée
 
   constructor(
     private route: ActivatedRoute,
@@ -18,24 +23,36 @@ export class ArtisanListeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Récupérer la liste complète des artisans
+    // Récupérer la liste complète des artisans et appliquer le filtre si une catégorie est sélectionnée
     this.artisanService.getArtisans().subscribe(data => {
       this.artisans = data;
-
-      // Écouter les paramètres de requête pour le filtrage
-      this.route.queryParams.subscribe(params => {
-        this.category = params['category'];
-
-        if (this.category) {
-          // Filtrer les artisans par catégorie
-          this.filteredArtisans = this.artisans.filter(
-            artisan => artisan.category === this.category
-          );
-        } else {
-          // Si aucune catégorie, afficher tous les artisans
-          this.filteredArtisans = this.artisans;
-        }
-      });
+      this.filterArtisans();
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['selectedCategory']) {
+      this.filterArtisans();
+    }
+  }
+
+  filterArtisans(): void {
+    if (this.selectedCategory) {
+      this.filteredArtisans = this.artisans.filter(
+        artisan => artisan.category === this.selectedCategory
+      );
+
+      this.errorMessage = this.filteredArtisans.length === 0 
+        ? `Aucun artisan trouvé dans la catégorie "${this.selectedCategory}".`
+        : null;
+    } else {
+      this.filteredArtisans = [];
+      this.errorMessage = null;
+    }
+  }
+
+  // Méthode pour créer le tableau d'étoiles basé sur la note
+  createStarArray(note: number): any[] {
+    return !isNaN(note) && note > 0 ? new Array(Math.round(note)) : [];
   }
 }

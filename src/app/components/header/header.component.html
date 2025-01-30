@@ -26,13 +26,37 @@
     <div class="bar"></div>
   </div>
 
-  <!-- Navigation Menu -->
-  <nav class="nav-bar" [ngClass]="{ 'active': isMenuOpen }">
-    <ul>
-      <li><a routerLink="/artisans" [queryParams]="{ category: 'Bâtiment' }" (click)="closeMenu()">Bâtiment</a></li>
-      <li><a routerLink="/artisans" [queryParams]="{ category: 'Services' }" (click)="closeMenu()">Services</a></li>
-      <li><a routerLink="/artisans" [queryParams]="{ category: 'Fabrication' }" (click)="closeMenu()">Fabrication</a></li>
-      <li><a routerLink="/artisans" [queryParams]="{ category: 'Alimentation' }" (click)="closeMenu()">Alimentation</a></li>
-    </ul>
-  </nav>
+ <!-- Navigation Menu -->
+<nav class="nav-bar" [ngClass]="{ 'active': isMenuOpen }">
+  <ul>
+    <li>
+      <a 
+        routerLink="/artisans" 
+        [queryParams]="{ category: 'Bâtiment' }" 
+        (click)="closeMenu(); onCategorySelect('Bâtiment')">Bâtiment
+      </a>
+    </li>
+    <li>
+      <a 
+        routerLink="/artisans" 
+        [queryParams]="{ category: 'Services' }" 
+        (click)="closeMenu(); onCategorySelect('Services')">Services
+      </a>
+    </li>
+    <li>
+      <a 
+        routerLink="/artisans" 
+        [queryParams]="{ category: 'Fabrication' }" 
+        (click)="closeMenu(); onCategorySelect('Fabrication')">Fabrication
+      </a>
+    </li>
+    <li>
+      <a 
+        routerLink="/artisans" 
+        [queryParams]="{ category: 'Alimentation' }" 
+        (click)="closeMenu(); onCategorySelect('Alimentation')">Alimentation
+      </a>
+    </li>
+  </ul>
+</nav>
 </header>

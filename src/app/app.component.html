@@ -1,4 +1,5 @@
 <!-- app.component.html -->
-<app-header></app-header>
+<app-header (categorySelected)="updateCategory($event)"></app-header>   
+<app-artisans-liste [selectedCategory]="currentCategory"></app-artisans-liste>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
