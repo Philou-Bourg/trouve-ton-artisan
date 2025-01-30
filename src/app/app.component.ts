@@ -1,3 +1,5 @@
+//app.component.ts
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'artisans-app';
+  currentCategory: string | null = null;
+
+  updateCategory(category: string) {
+    this.currentCategory = category;
+  }
 }

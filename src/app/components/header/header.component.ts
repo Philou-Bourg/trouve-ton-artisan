@@ -1,6 +1,6 @@
 // header.component.ts
 
-import { Component, HostListener } from '@angular/core';
+import { Component, EventEmitter, Output, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,31 +8,38 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
- // Je gére la recherche des artisans, implémenter la méthode
- search(query: string) {
-  // Logique pour rechercher des artisans en fonction du nom, spécialité, ou ville
-  console.log(query);
-}
-isMenuOpen: boolean = false;
- // Méthode pour ouvrir ou fermer le menu
+  @Output() categorySelected = new EventEmitter<string>(); // Déclaration de l'output
+
+  // Je gére la recherche des artisans, implémentation de la méthode
+  search(query: string) {
+    // Logique pour rechercher des artisans en fonction du nom, spécialité, ou ville
+   
+  }
+
+  isMenuOpen: boolean = false;
+  
+  // Méthode pour ouvrir ou fermer le menu
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
-// Méthode pour fermer le menu lorsque l'on clique sur un élément
-closeMenu() {
-  this.isMenuOpen = false;
-}
 
-// Méthode pour fermer le menu lorsqu'on clique en dehors du menu
-@HostListener('document:click', ['$event'])
-closeOnOutsideClick(event: MouseEvent) {
-  const menuElement = document.querySelector('.nav-bar');
-  const hamburgerElement = document.querySelector('.hamburger');
-  // Vérifie si le clic se fait à l'extérieur du menu et du hamburger
-  if (menuElement && hamburgerElement && !menuElement.contains(event.target as Node) && !hamburgerElement.contains(event.target as Node)) {
+  // Méthode pour fermer le menu lorsqu'on clique en dehors
+  closeMenu() {
     this.isMenuOpen = false;
   }
-}
-}
 
+  // Méthode pour fermer le menu lorsqu'on clique en dehors du menu
+  @HostListener('document:click', ['$event'])
+  closeOnOutsideClick(event: MouseEvent) {
+    const menuElement = document.querySelector('.nav-bar');
+    const hamburgerElement = document.querySelector('.hamburger');
+    if (menuElement && hamburgerElement && !menuElement.contains(event.target as Node) && !hamburgerElement.contains(event.target as Node)) {
+      this.isMenuOpen = false;
+    }
+  }
 
+  // Méthode pour sélectionner une catégorie et émettre l'événement
+  onCategorySelect(category: string): void {
+    this.categorySelected.emit(category);  // Émettre l'événement avec la catégorie sélectionnée
+  }
+}

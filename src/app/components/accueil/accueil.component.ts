@@ -1,7 +1,7 @@
 // accueil.component.ts
 
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';  // Importer HttpClient
+import { HttpClient } from '@angular/common/http';  // Importe HttpClient
 
 interface Artisan {
   id: string;
@@ -34,7 +34,7 @@ export class AccueilComponent implements OnInit {
 
   // Charger les artisans depuis le fichier JSON
   loadArtisans(): void {
-    this.http.get<Artisan[]>('assets/datas.json')  // Utiliser HttpClient pour récupérer le fichier JSON
+    this.http.get<Artisan[]>('assets/datas.json')  // j'utilise HttpClient pour récupérer le fichier JSON
       .subscribe(data => {
         this.artisans = data;
         // Filtrer uniquement les artisans avec les IDs 8, 9 et 11
