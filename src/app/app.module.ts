@@ -13,6 +13,7 @@ import { MentionsLegalesComponent } from './components/mentions-legales/mentions
 import { DonneesPersonnellesComponent } from './components/donnees-personnelles/donnees-personnelles.component';
 import { AccessibiliteComponent } from './components/accessibilite/accessibilite.component';
 import { GestionCookiesComponent } from './components/gestion-cookies/gestion-cookies.component';
+import { FormsModule } from '@angular/forms'; 
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { GestionCookiesComponent } from './components/gestion-cookies/gestion-co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

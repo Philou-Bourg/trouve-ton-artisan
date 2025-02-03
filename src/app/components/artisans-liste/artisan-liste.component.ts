@@ -51,7 +51,7 @@ export class ArtisanListeComponent implements OnInit, OnChanges {
     }
   }
 
-  // Méthode pour créer le tableau d'étoiles basé sur la note
+  // Création du tableau d'étoiles basé sur la note
   createStarArray(note: number): any[] {
     return !isNaN(note) && note > 0 ? new Array(Math.round(note)) : [];
   }

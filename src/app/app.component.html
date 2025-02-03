@@ -1,5 +1,12 @@
 <!-- app.component.html -->
 <app-header (categorySelected)="updateCategory($event)"></app-header>   
-<app-artisans-liste [selectedCategory]="currentCategory"></app-artisans-liste>
+
+<!-- Affiche la liste des artisans seulement si on est sur /artisans ou /artisans/:categorie -->
+<app-artisans-liste 
+  *ngIf="isArtisansPage" 
+  [selectedCategory]="currentCategory">
+</app-artisans-liste>
+
 <router-outlet></router-outlet>
+
 <app-footer></app-footer>
