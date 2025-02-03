@@ -1,1 +1,75 @@
-<p>artisan-fiche works!</p>
+<!-- artisan-fiche.component.html -->
+
+<!-- Descriptif de l'artisan -->
+<div class="container mx-auto p-6">
+  <!-- Nom de l'artisan -->
+  <h1 class="text-graphik font-bold text-4xl text-black">{{ artisan?.name }}</h1>
+
+ <!-- Note -->
+<div class="mt-4 flex items-center">
+  <p class="text-graphik font-bold text-lg text-black mr-2">Note :</p>
+  <span class="text-lg text-black">{{ artisan?.note }}</span>
+  <span class="flex items-center ml-2">
+    <ng-container *ngFor="let star of createStarArray(artisan?.note); let i = index">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#0074C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+      </svg>
+    </ng-container>
+  </span>
+</div>
+
+  <!-- Catégorie -->
+  <p class="text-graphik font-bold text-lg text-black mt-4">Catégorie : <span class="text-black">{{ artisan?.category }}</span></p>
+
+  <!-- Spécialité -->
+  <p class="text-graphik font-bold text-xl text-black mt-4">Spécialité : <span class="text-black">{{ artisan?.specialty }}</span></p>
+
+  <!-- Localité -->
+  <p class="text-graphik font-bold text-lg text-black mt-4 flex items-center">
+    <svg class="w-6 h-6 text-[#0074C7] mr-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+      <path d="M12 2C8.14 2 5 5.14 5 9c0 5 7 12 7 12s7-7 7-12c0-3.86-3.14-7-7-7z"/>
+      <circle cx="12" cy="9" r="2.5"/>
+    </svg>
+    Localité : <span class="text-black ml-2">{{ artisan?.location }}</span>
+  </p>
+
+  <!-- À propos -->
+  <div class="mt-8">
+    <h2 class="text-graphik font-bold text-2xl text-black">À propos :</h2>
+    <p class="text-black mt-2">{{ artisan?.about }}</p>
+  </div>
+
+  <!-- Formulaire de contact -->
+  <div class="mt-8 p-6 border-2 border-[#0074C7] shadow-lg rounded-lg">
+    <h2 class="text-graphik font-bold text-2xl text-black">Formulaire de contact :</h2>
+    <form (ngSubmit)="sendEmail()">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+        <div>
+          <input type="text" id="name" name="name" [(ngModel)]="contact.name" required
+       placeholder="Votre nom :"
+       class="w-full p-2 mt-1 bg-[#F1F8FC] border border-gray-300 rounded-md focus:outline-none focus:border-[#0074C7] text-black text-lg text-graphik placeholder-gray-900">
+        </div>
+        <div>
+          <input type="text" id="subject" name="subject" [(ngModel)]="contact.subject" required
+                 placeholder="Objet du message :" class="w-full p-2 mt-1 bg-[#F1F8FC] border border-gray-300 rounded-md focus:outline-none focus:border-[#0074C7] text-black text-lg text-graphik placeholder-gray-900">
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <textarea id="message" name="message" [(ngModel)]="contact.message" required
+                  placeholder="Message :" class="w-full p-2 mt-1 bg-[#F1F8FC] border border-gray-300 rounded-md h-24 focus:outline-none focus:border-[#0074C7] text-black  text-lg text-graphik placeholder-gray-900"></textarea>
+      </div>
+
+      <button type="submit" class="bg-[#0074C7] text-white font-bold py-2 px-6 mt-4 rounded-md hover:bg-blue-800">Envoyer</button>
+    </form>
+  </div>
+
+  <!-- Accès au site artisan -->
+  <div class="mt-8">
+    <p class="text-graphik font-bold text-base text-black">Pour accéder au site de notre artisan, cliquez sur le bouton suivant :</p>
+    <a [href]="artisan?.website" target="_blank"
+       class="inline-block bg-[#0074C7] text-white font-bold py-2 px-6 mt-2 rounded-md hover:bg-blue-800">
+      Visiter le site
+    </a>
+  </div>
+</div>

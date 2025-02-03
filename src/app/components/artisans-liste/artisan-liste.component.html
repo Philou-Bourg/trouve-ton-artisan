@@ -3,8 +3,9 @@
 <div *ngIf="filteredArtisans.length > 0">
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-12">
     <!-- Artisan -->
-    <div *ngFor="let artisan of filteredArtisans"
-      class="artisan-card bg-[#F1F8FC] shadow-lg hover:shadow-xl rounded-lg p-4 w-full flex flex-col items-start">
+    <a *ngFor="let artisan of filteredArtisans" 
+       [routerLink]="['/artisan', artisan.id]" 
+       class="artisan-card bg-[#F1F8FC] shadow-lg hover:shadow-xl rounded-lg p-4 w-full flex flex-col items-start cursor-pointer transition-transform transform hover:scale-105">
       
       <!-- Nom de l'artisan -->
       <h3 class="text-graphik font-bold text-xl text-black mb-2 text-left ml-4">{{ artisan.name }}</h3>
@@ -28,8 +29,6 @@
       <!-- Localisation -->
       <p class="text-black text-lg text-left mt-2 ml-4">Localisation : {{ artisan.location }}</p>
 
-      <!-- Lien vers plus de détails -->
-      <a [routerLink]="['/artisan', artisan.id]" class="text-blue-500 hover:text-blue-700 mt-4 self-center">Voir plus</a>
-    </div>
+    </a>
   </div>
 </div>
