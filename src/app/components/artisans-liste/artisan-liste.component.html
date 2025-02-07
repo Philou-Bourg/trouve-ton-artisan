@@ -1,6 +1,7 @@
 <!-- artisan-liste.component.html -->
-
-<div *ngIf="filteredArtisans.length > 0">
+ 
+<!-- Affichage des artisans filtrés uniquement si un critère de filtre est présent -->
+<div *ngIf="(selectedCategory || searchQuery) && filteredArtisans.length > 0">
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-12">
     <!-- Artisan -->
     <a *ngFor="let artisan of filteredArtisans" 
@@ -31,4 +32,9 @@
 
     </a>
   </div>
+</div>
+
+<!-- Affichage message si aucun artisan trouvé -->
+<div *ngIf="filteredArtisans.length === 0 && searchQuery">
+  <p>Aucun artisan trouvé avec cette recherche.</p>
 </div>

@@ -1,12 +1,28 @@
 <!-- app.component.html -->
-<app-header (categorySelected)="updateCategory($event)"></app-header>   
 
-<!-- Affiche la liste des artisans seulement si on est sur /artisans ou /artisans/:categorie -->
-<app-artisans-liste 
-  *ngIf="isArtisansPage" 
-  [selectedCategory]="currentCategory">
-</app-artisans-liste>
+<app-header 
+  (categorySelected)="updateCategory($event)" 
+  (searchQueryChange)="updateSearchQuery($event)">
+</app-header>
 
+<!-- Si une recherche est en cours, afficher uniquement la liste filtrée des artisans -->
+<ng-container *ngIf="searchQuery.length > 0; else showCategoryArtisans">
+  <app-artisans-liste  
+    [selectedCategory]="currentCategory"  
+    [searchQuery]="searchQuery">
+  </app-artisans-liste>
+</ng-container>
+
+<!-- Vue avec la liste des artisans de la catégorie sélectionnée -->
+<ng-template #showCategoryArtisans>
+  <!-- Afficher uniquement la liste des artisans de la catégorie si une catégorie est sélectionnée -->
+  <app-artisans-liste  
+    *ngIf="currentCategory"  
+    [selectedCategory]="currentCategory">
+  </app-artisans-liste>
+</ng-template>
+
+<!-- Utilisation de router-outlet pour afficher d'autres pages comme la fiche d'un artisan -->
 <router-outlet></router-outlet>
 
 <app-footer></app-footer>

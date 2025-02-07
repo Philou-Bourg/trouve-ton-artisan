@@ -13,7 +13,9 @@ import { MentionsLegalesComponent } from './components/mentions-legales/mentions
 import { DonneesPersonnellesComponent } from './components/donnees-personnelles/donnees-personnelles.component';
 import { AccessibiliteComponent } from './components/accessibilite/accessibilite.component';
 import { GestionCookiesComponent } from './components/gestion-cookies/gestion-cookies.component';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+import { SearchPipe } from './pipes/search.pipe';
+ 
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     MentionsLegalesComponent,
     DonneesPersonnellesComponent,
     AccessibiliteComponent,
-    GestionCookiesComponent
+    GestionCookiesComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
   ],
+  exports: [SearchPipe],
   providers: [],
   bootstrap: [AppComponent]
 })
