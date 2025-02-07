@@ -1,6 +1,6 @@
 // header.component.ts
 
-import { Component, EventEmitter, Output, HostListener } from '@angular/core';
+import { Component, EventEmitter, Output, Input, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,16 +8,20 @@ import { Component, EventEmitter, Output, HostListener } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  @Output() categorySelected = new EventEmitter<string>(); // Déclaration de l'output
+  @Input() searchQuery: string = '';  // Réception de la valeur de recherche depuis le parent
+  @Output() categorySelected = new EventEmitter<string>();  // Émission de l'événement pour la catégorie sélectionnée
+  @Output() searchQueryChange = new EventEmitter<string>();  // Émission de l'événement pour la recherche
 
-  // Je gére la recherche des artisans, implémentation de la méthode
-  search(query: string) {
-    // Logique pour rechercher des artisans en fonction du nom, spécialité, ou ville
-   
+  // Propriétés pour la gestion de la recherche
+  searchQueryValue: string = this.searchQuery; // Initialiser avec la valeur reçue du parent
+
+  // Méthode pour gérer la recherche des artisans
+  onSearch() {
+    this.searchQueryChange.emit(this.searchQueryValue);  // Émettre la recherche avec la nouvelle valeur
   }
 
   isMenuOpen: boolean = false;
-  
+
   // Méthode pour ouvrir ou fermer le menu
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -40,6 +44,6 @@ export class HeaderComponent {
 
   // Méthode pour sélectionner une catégorie et émettre l'événement
   onCategorySelect(category: string): void {
-    this.categorySelected.emit(category);  // Émettre l'événement avec la catégorie sélectionnée
+    this.categorySelected.emit(category);  // Émettre la catégorie sélectionnée
   }
 }
