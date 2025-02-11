@@ -17,7 +17,7 @@ export default {
         bgLight: '#F1F8FC', // Background des rectangles
       },
       fontFamily: {
-        sans: ['Graphik', 'Inter', 'sans-serif'], // Famille de polices
+        sans: ['Inter', 'sans-serif'], // Famille de polices
       },
       fontSize: {
         'step-lg': '24px',
