@@ -48,3 +48,6 @@ L'utilisation se veut simple et ergonomique, les textes soulignés permettent de
 
 Contact
 Pour tout contact, merci de m'écrire à l'adresse mail suivante : [peeters_phil50@hotmail.com](mailto:peeters_phil50@hotmail.com)
+
+## Site en ligne
+Vous pouvez accéder au site déployé à cette adresse : [https://trouve-ton-artisan-2025.netlify.app/](https://trouve-ton-artisan-2025.netlify.app/)
